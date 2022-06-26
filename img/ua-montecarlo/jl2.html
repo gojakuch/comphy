@@ -1,0 +1,34 @@
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPhy: Computational Physics Library</title>
+    <link href="../../style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="../../favicon.ico">
+  </head>
+  <body>
+    <a href="../../index.html"><img alt="ComPhy" src="../../comphy.png" style="width:200px;height:100px"></a>
+    <div class="main">
+      <pre>
+      <span class="cmnt"># julia</span>
+      <b>using</b> Plots
+
+      <span class="cmnt">## задаємо робочу зону</span>
+      width, height = π, 1
+      f(x) = sin(x)
+      S = width*height
+
+      <span class="cmnt">## замість ітерацій згенеруємо одразу N точок і просто порахуємо кількість F</span>
+      N = 200000
+      points = [width*rand(N), height*rand(N)]
+      F = sum(points[2] .< f.(points[1]))
+      S_f = F/N*S
+
+      <span class="cmnt">## намалювати середовище</span>
+      table = scatter(points..., label="точки")
+      xs = 0:0.1:width
+      plot!(table, xs, f.(xs), legend=true, lw=3, color="black", label="f(x)")
+      </pre>
+    </div>
+  </body>
+</html>

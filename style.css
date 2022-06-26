@@ -1,0 +1,46 @@
+html {
+  margin: 0;
+    height: 100%;
+    width: 100%;
+}
+body {
+  padding: 0 2% 5%;
+}
+h1 {
+    text-align: center;
+}
+p, marquee {
+  font-size:120%;
+}
+code {
+  font-family: Consolas,"courier new";
+  color: black;
+  background-color: #f1f1f1;
+  padding: 2px;
+}
+
+table {
+  margin-left:auto;
+  margin-right:auto;
+  font-size:120%;
+}
+th, td {
+  border:1px solid black;
+}
+
+.main {
+  padding:0 5% 0;
+}
+.cmnt {
+  color: grey;
+}
+.row {
+  display: flex;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 10% 0;
+}

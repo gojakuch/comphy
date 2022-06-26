@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPhy: Computational Physics Library</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <a href="en-index.html"><img alt="ComPhy" src="comphy.png" style="width:200px;height:100px"></a>
+    <div class="main">
+      <h1>Computer Science</h1>
+      <h2 id="pl">1. Programming Languages</h2>
+      <p>
+        If you are new to programming, you need to understand that there are many different programming languages. Some are simpler, others are hard; some are fast, whereas others are slow. Programming languages can be segregated into different types by various criteria but we are not going to go deep into that for now, even though I could talk about this for ages. Here is a list of languages that are more common in scientific programming:
+        <ol>
+          <li><b>the Julia Language</b> (<a href="https://julialang.org/">website</a>) - my absolute favourite. It is fast, elegant, and very simple. Furthermore, it was designed specifically for physicists and mathematicians. Can interact with other languages like Python (see below), C, and Fortran.
+            <br> <a href="https://youtube.com/playlist?list=PLP8iPy9hna6SCcFv3FvY_qjAmtTsNYHQE">official setup tutorials</a>
+            <br> <a href="https://youtu.be/IFkQ0aB6eHs">Linear Algebra in Julia</a>
+            <br> <a href="https://youtu.be/sE67bP2PnOo"> the Julia Language in one video (with setup)</a>
+            <br> <a href="https://youtube.com/playlist?list=PLCAl7tjCwWyGjdzOOnlbGnVNZk0kB8VSa">Parallel Computing and Scientific Machine Learning Course</a> - first videos are introductory, others are basically about Computational Physics
+          </li>
+          <li>
+            <b>Python</b> (<a href="https://www.python.org/">website</a>) - designed to be simple and readable by non-programmers. Python is very slow but popular these days because of simplicity and some tricks to speed it up a bit. Probably a good one to be one's first programming language.
+            <br> <a href="https://youtu.be/rfscVS0vtbw"> 4.5 Hours of Python (with setup)</a>. Highly recommended.
+            <br> <a href="https://youtu.be/XKHEtdqhLK8"> 12 Hours of Python</a> (you won't need many of the mentioned things at first)
+            <br> <a href="https://youtu.be/HW29067qVWk"> Jupyter Notebooks Tutorial</a>. Jupyter is a widely used environment that is also used in further tutorials. It generally simplifies one's experience with graphics and some other scientific tools.
+            <br> <a href="https://youtu.be/cTJBJH8hacc"> MatPlotLib Tutorial.</a> MatPlotLib is a library (tool) for plotting and visualizing data in Python.
+            <br> <a href="https://youtu.be/QUT1VHiLmmI"> NumPy Tutorial</a>. NumPy is basically one of those tricks Python uses to perform faster computations and operate with mathematical objects.
+            <br> <a href="https://youtu.be/jmX4FOUEfgU"> SciPy Tutorial</a>. SciPy is a tool for scientific programming in Python. Crucial for Computational Physics.
+            <br> <a href="https://personal.math.ubc.ca/~pwalls/math-python/">Mathematical Python</a>
+          </li>
+          <li>
+            <b>R</b> (<a href="https://www.r-project.org/">website</a>) - a language for statistical computing. I heard that some people use it for physics too.
+          </li>
+          <li>
+            <b>MATLAB</b> (<a href="https://www.mathworks.com/products/matlab.html">website</a>) - a relatively popular language designed to be used by mathematicians. I cannot recommend it, though, inasmuch as it is not entirely free.
+          </li>
+        </ol>
+      </p>
+      <p>
+        Of course, other languages (C, C++, Java, etc.) can be used too, I only mentioned those that are most practical and common for scientific programming.
+      </p>
+      <h2 id="theory">2. Theory</h2>
+      <p>
+        I am only going to mention the two most prominent theoretical areas that everyone is likely to face.
+      </p>
+      <ol>
+        <li>
+          <b>Graph Theory</b> is a widely used area of mathematics for computer modeling.
+          <br> <a href="https://www.tutorialspoint.com/graph_theory/graph_theory_fundamentals.htm">Graph Theory course on Tutorialspoint</a>
+          <br> <a href="https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/">Algortihms on Graphs by GeeksForGeeks</a>
+        </li>
+        <li>
+          <b>Computational and Algorithmic Complexity</b> helps to study and understand some properties of algorithms and tasks.
+          <br> <a href="https://devopedia.org/algorithmic-complexity">Algorithmic Complexity Basics</a>
+          <br> <a href="https://towardsdatascience.com/algorithmic-complexity-101-28b567cc335b">Algorithms and Complexity (Introduction) with Python</a>
+          <br> <a href="https://plato.stanford.edu/entries/computational-complexity/">"Computational Complexity Theory" on Stanford Encyclopedia of Philosophy</a>
+        </li>
+      </ol>
+      <h2 id="tips">3. Some Tips on Programming</h2>
+      <p>
+        It is always extremely important to write optimal code, therefore, this section is mainly about some general tips on code optimization.
+      </p>
+      <p>
+        There are two main resources that your program uses: time and memory. Sometimes one can reduce execution and/or algorithmic time by using more computer memory, or do the opposite, that is, to save memory by building a slower algorithm (the latter is not a common approach, however). The key rules for beginners:
+        <ol>
+          <li>The less loops and iterations, the better: it is always faster to perform, let's say, <i>n/2</i> actions rather than <i>n</i>.</li>
+          <li>Avoid conditions when possible: to be honest, most of the modern compilers are somewhat good at reducing useless operations, however it is always good to omit any chance of your program running slow. Thus, if you, suppose, have a condition clause where the "if"-branch and the "else"-branch only differ by a single number (a frequently occurring situation), you should remove this condition entirely.</li>
+          <li>Don't store big pieces of data that you will not use: Suppose, you had a huge array of a million integers. You have processed it and your algorithm has already derived the needed information from it. Don't let this array remain in your computer's memory.</li>
+        </ol>
+      </p>
+      <p>
+        Let us now address the first two rules a bit further. Here are the examples (in pseudocode, that is, in a schematic unreal programing language).
+      </p>
+      <code><pre>
+        <span class="cmnt"># RULE 1
+        # suppose we have a n×n matrix A and we want to iterate through its diagonal
+        # BAD (n^2 iterations + condition):</span>
+        <b>for</b> i <b>in</b> 1...n
+          <b>for</b> j <b>in</b> 1...n
+            <b>if</b> i == j
+              print(A[i][j])
+            <span style="color:lightgrey">endif
+          endfor
+        endfor</span>
+
+        <span class="cmnt"># GOOD (only n necessary iterations):</span>
+        <b>for</b> i <b>in</b> 1...n
+          print(A[i][i])
+        <span style="color:lightgrey">endfor</span>
+
+
+        <span class="cmnt"># RULE 2
+        # suppose we have the following situation
+        # B is a boolean control variable (true or false) or it can be an arbitrary logical expression
+        # R is the variable for the result</span>
+        <b>if</b> B
+          R := 0
+        <b>else</b>
+          R := 1
+        <span style="color:lightgrey">endif</span>
+
+        <span class="cmnt"># this can obviously be simplified to</span>
+        R := <b>not</b> B
+        <span class="cmnt"># one can prove that the results R are equal, if that is not obvious
+        # moreover, one can generalize this trick if we recall that true == 1 and false == 0
+
+        # now,
+        # B is an INTEGER control variable (1 instead of true and 0 instead of false)
+        # R is the variable for the result
+        # F is some function, operation or algorithm
+        # n, m are some variables.
+        # Depending on B, we want to choose either m or n to run F on, and then save the result to R
+        # BAD:</span>
+        <b>if</b> B
+          R := F(m)
+        <b>else</b>
+          R := F(n)
+        <span style="color:lightgrey">endif</span>
+
+        <span class="cmnt"># GOOD (no conditions):</span>
+        array := [n, m]
+        R := F(array[B])
+        <span class="cmnt"># indexing with B is bow possible as we made it an integer
+        # if the language allows, we can skip the conversion from boolean to integer
+        # you can generalize it even further, but this is left as an exercise to the reader.</span>
+      </pre></code>
+      <p>
+        To sum up, your code should be designed to perform the task in as few actions as possible (it sounds easier than it is for the vast majority of beginners).
+      </p>
+    </div>
+
+    <div style="text-align:center;padding-top:2%;"><a href="https://atell.neocities.org" style="color:grey">Atell Krasnopolski, 2022</a></div>
+  </body>
+</html>

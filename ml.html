@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPhy: Computational Physics Library</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <a href="en-index.html"><img alt="ComPhy" src="comphy.png" style="width:200px;height:100px"></a>
+    <div class="main">
+      <h1>Machine Learning in Physics</h1>
+      <h2 id="deml">Differential Equations & ML</h2>
+      <p>
+        Before reading this section, please make sure that you know the <a href="numanalysis.html#numde">classical methods</a> for solving DEs numerically (like the Euler's method).
+      </p>
+      <p>
+        As most of the modern machine learning techniques are closely intertwined with optimization, ML can be applied to solve quite complex differential equations numerically if we reduce them to optimization tasks. Specifically, any differential equation (or even functional equation in general) of the form \[L[f] = R[f]\] where \(f\) is the function in question, \(L[f]\) and \(R[f]\) are some expressions involving the function, \(f\), can be reduced to \[|L[f] - R[f]| = 0\] after which we simply solve a minimization task \[f(\textbf{x})=\underset{f}{\text{argmin}}|L[f] - R[f]|\] numerically. This is because we choose a function \(f(\textbf{x})\) such that it minimizes the expression, the minimum of which is obviously 0, which gives us the solution to our initial differential equation. For approaching this task, we can make a neural network or just a parameterized function \(f(\textbf{p}, \textbf{x})\) of an acceptable form and solve approximately for the set of parameters \(\textbf{p}\) \[\textbf{p}_{\text{min}} \approx \underset{\textbf{p}}{\text{argmin}}|L[f(\textbf{p}, \textbf{x})] - R[f(\textbf{p}, \textbf{x})]|\] We can then consider the function \(\tilde{f}(\textbf{x})=f(\textbf{p}_{\text{min}}, \textbf{x})\), where we fix the set of parameters and only vary the arguments, approximately our solution. In the language of machine learning, we define \(|L[f] - R[f]|\) to be our loss function and use any minimization algorithm (such as gradient descent) to find its minimum.
+      </p>
+      <p>
+        This idea is crucial and, in fact, not that hard to grasp. I highly recommend the <a href="https://youtube.com/playlist?list=PLCAl7tjCwWyGjdzOOnlbGnVNZk0kB8VSa">Parallel Computing and Scientific Machine Learning Course</a> and <a href="https://github.com/thunil/Physics-Based-Deep-Learning">this</a> set of links for more details and other approaches.
+      </p>
+    </div>
+
+    <div style="text-align:center;padding-top:2%;"><a href="https://atell.neocities.org" style="color:grey">Atell Krasnopolski, 2022</a></div>
+  </body>
+</html>

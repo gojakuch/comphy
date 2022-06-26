@@ -1,0 +1,59 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPhy: Computational Physics Library</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <a href="en-index.html"><img alt="ComPhy" src="comphy.png" style="width:200px;height:100px"></a>
+    <div class="main">
+      <h1 id="numanalysis">Numerical Analysis</h1>
+      <p>
+        The <a href="https://personal.math.ubc.ca/~pwalls/math-python/">"Mathematical Python"</a> website covers most (~60%) of this page in the best form possible. There's a <a href="https://youtube.com/playlist?list=PLnWQ_pnPVzmJnp794rQXIcwJIjwy7Nb2U">series of lectures for computational physicists</a> that mostly covers theoretical information related to Numerical Analysis.
+      </p>
+      <p>
+        The three core things in Numerical Analysis that you will need are: <b>Numerical Differentiation</b>, <b>Numerical Integration</b>, and <b>Numerical Root Finding</b>. There's one more thing, however, which is way less popular <b>Numerical Linear Algebra</b>.
+      </p>
+      <h2>1. Numerical Differentiation</h2>
+      <p>
+        Numerical Differentiation means finding the derivative of a function numerically. The basic methods are constructed by approximating the derivative directly from its definition. A subclass of methods for doing numerical differentiation is automatic differentiation (AD for short), which is a way more intelligent approach. In general, numerical differentiation is a very big field itself.
+      </p>
+      <a href="https://personal.math.ubc.ca/~pwalls/math-python/differentiation/differentiation/">Basic Methods for Numerical Differentiation</a>.
+      <br> <a href="https://youtu.be/zHPXGBiTM5A">Forward-Mode Automatic Differentiation via High Dimentional Algebras</a>
+      <h2>2. Numerical Integration</h2>
+      <p>
+        Analogous to the previous subtopic, this one is about computing a function's integral numerically.
+      </p>
+      <a href="https://www.feynmanlectures.caltech.edu/TIPS_03.html#Ch3-S4">Basic Numerical Integration Rules mentioned by R. Feynman</a>
+      <br> <a href="https://personal.math.ubc.ca/~pwalls/math-python/integration/riemann-sums/">Riemann Sums</a>
+      <br> <a href="https://personal.math.ubc.ca/~pwalls/math-python/integration/trapezoid-rule/">Trapezoid Rule</a>
+      <br> <a href="https://personal.math.ubc.ca/~pwalls/math-python/integration/simpsons-rule/">Simpson's Rule</a>
+      <br> <a href="https://arxiv.org/abs/2006.15210">A Paper on Automatic Integration</a>
+      <h2>3. Numerical Root Finding</h2>
+      <p>
+        In a nutshell, this subtopic is about solving equations of the form <i>f(x) = 0</i> for <i>x</i> numerically.
+      </p>
+      <a href="https://personal.math.ubc.ca/~pwalls/math-python/roots-optimization/bisection/">Bisection Method</a>
+      <br> <a href="https://personal.math.ubc.ca/~pwalls/math-python/roots-optimization/secant/">Secant Method</a>
+      <br> <a href="https://personal.math.ubc.ca/~pwalls/math-python/roots-optimization/newton/">Newton's Method</a> (important)
+      <h2>4. Numerical Linear Algebra</h2>
+      <a href="https://youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k">Matrix Methods for Signal Processing by MITOCW</a>
+      <br> <a href="https://youtu.be/oGZK3yGF-6k">Matrix Calculus and the Julia Programming Language</a>
+      <br> <a href="https://youtube.com/playlist?list=PLOhS0kNLL2vZYN6cskvC8-FhhyYZoG5FU">Computational Linear Algebra</a>
+      <h1 id="numde">Numerical Methods for Differential Equations</h1>
+      <p>
+        This topic is too distinct to put it as a 5th subtopic of Numerical Analysis, thus it has been made a separate one for the purposes of logic. I am only going to cover the classic methods of solving DEs numerically, while there are other, more advanced methods (see <a href="ml.html#deml">Differential Equations & ML</a>).
+      </p>
+      <br> <a href="https://web.mit.edu/10.001/Web/Course_Notes/Differential_Equations_Notes/lec24.html">Numerical Solution of Ordinary Differential Equations
+ by R. Sureshkumar</a>
+      <a href="https://www.intmath.com/differential-equations/11-eulers-method-des.php">Euler's Method</a>
+      <br> <a href="https://www.youtube.com/watch?v=ukNbG7muKho">Euler's Method (Video Example)</a>
+      <br> <a href="https://personal.math.ubc.ca/~pwalls/math-python/differential-equations/first-order/">First Order Equations (short)</a>
+      <br> <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta Methods (Wikipedia)</a>
+    </div>
+
+    <div style="text-align:center;padding-top:2%;"><a href="https://atell.neocities.org" style="color:grey">Atell Krasnopolski, 2022</a></div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!-- для статей українською файл має мати назву ua-ARTICLENAME.html -->
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPhy: Computational Physics Library</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <a href="index.html"><img alt="ComPhy" src="comphy.png" style="width:200px;height:100px"></a>
+    <!-- КОМЕНТ -->
+
+
+    <div class="main"><!-- писати в мейні -->
+      <!-- текст: отак -->
+      <h1>Назва статті заголовок</h1>
+      <h2>Підзаголовок</h2>
+      <p>
+        Абзац \(inline\) - тут типовий латекс
+        \[newline formula\]
+        Приклад латеху: \[\hat{H} = \frac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\1 & -1\end{pmatrix}\] \[\hat{H}|1⟩ = |-⟩\]
+      </p>
+
+      <!-- картинки: папку img доведеться створити, в ній папку з такою ж назвою як назва файлу статті. картинки нумеруйте -->
+      <img style="display:block;margin:auto;height:auto;width:25%" src="img/ua-ARTICLENAME/IMGNUMBER.png" alt="illustration">
+      <div style="text-align:center"> <i>CAPTION</i> </div>
+
+      <!-- код: автоматичне форматування відступів через теґи <code><pre>, для читабельности додавайте коменти в <span class="cmnt"></span> або опціонально виділяйте жирним через <b>if</b> якісь кодові слова -->
+      <code>
+        <pre>
+          <span class="cmnt"># code coment (in grey)</span>
+          N = 300000000
+          <b>if</b> B
+            R := F(m)
+          <b>else</b>
+            R := F(n)
+        </pre>
+      </code>
+    </div><!-- кінець мейну -->
+
+
+    <!-- тут себе напишіть якщо хочте -->
+    <div style="text-align:center;padding-top:2%;"><a href="https://atell.neocities.org" style="color:grey">Atell Krasnopolski, 2022</a></div>
+  </body>
+</html>

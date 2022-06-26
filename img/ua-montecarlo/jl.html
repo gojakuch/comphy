@@ -1,0 +1,60 @@
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPhy: Computational Physics Library</title>
+    <link href="../../style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="../../favicon.ico">
+  </head>
+  <body>
+    <a href="../../index.html"><img alt="ComPhy" src="../../comphy.png" style="width:200px;height:100px"></a>
+    <div class="main">
+      <pre>
+      <span class="cmnt"># julia</span>
+      <b>using</b> Plots
+
+      <span class="cmnt">## задаємо робочу зону</span>
+      width, height = 2, 1
+      r = 0.5
+      c = height/2
+
+      <span class="cmnt">## функції для графічного зображення фігур</span>
+      <b>function</b> circle(h, k, r)
+          θ = LinRange(0, 2π, 500)
+          h .+ r .* sin.(θ), k .+ r .* cos.(θ)
+      <b>end</b>
+
+      <b>function</b> square(h, k, a)
+          ha = a/2
+          [h-ha, h+ha, h+ha, h-ha, h-ha], [k+ha, k+ha, k-ha, k-ha, k+ha]
+      <b>end</b>
+
+      <span class="cmnt">## ітерації</span>
+      iters = 1000
+      points = [Float64[], Float64[]]
+      inc, ins = 0, 0
+      pitrials = Float64[]
+      <b>for</b>  _ <b>in</b> 1:iters
+          push!(pitrials, inc/max(1, ins))
+          x, y = width*rand(), height*rand()
+          push!(points[1], x)
+          push!(points[2], y)
+          <b>if</b> width-1.5r <= x <b>&&</b> x <= width-0.5r <b>&&</b> c-0.5r <= y <b>&&</b> y <= c+0.5r
+              ins += 1
+          <b>elseif</b> (x-r)^2 + (y-c)^2 <= r^2
+              inc += 1
+          <b>end</b>
+      <b>end</b>
+
+      <span class="cmnt">## намалювати середовище</span>
+      table = scatter(points..., legend=false)
+      plot!(table, circle(r, c, r), legend=false, lw=2, color="black")
+      plot!(table, square(width-r, c, r), lw=2, color="black")
+
+      <span class="cmnt">## намалювати графік наближення</span>
+      piplot = plot(pitrials, label="наближення")
+      hline!(piplot,[π], label="π")
+      </pre>
+    </div>
+  </body>
+</html>
