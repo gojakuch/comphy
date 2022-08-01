@@ -1,0 +1,27 @@
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPhy: Computational Physics Library</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <a href="index.html"><img alt="ComPhy" src="comphy.png" style="width:200px;height:100px"></a>
+    <div class="main">
+      <h1 id="deml">Диференційні Рівняння й Машинне Навчання</h1><div style="text-align:center">[переклад <a href="ml.html#deml">сторінки англійською</a>]</div>
+      <p>
+        Враховуючи, що техніки машинного навчання (МН), як правило, пов'язані з оптимізацією, МН можна застосовувати для розв'язання доволі складних диференційних рівнянь, якщо ми зведемо їх до задач оптимізації. А саме, будь-яке диференційне рівняння (або навіть функціональне) вигляду \[L[f] = R[f]\] де \(f\) – невідома функція, \(L[f]\) та \(R[f]\) – якісь вирази з \(f\), може бути зведено до \[|L[f] - R[f]| = 0\] після чого ми просто мінімізуємо \[f(\textbf{x})=\underset{f}{\text{argmin}}|L[f] - R[f]|\] чисельно. Це правильно саме тому, що ми цим підбираємо \(f(\textbf{x})\) таку, що вона мінімізує наш вираз, мінімум якого явно є 0, а отже, ця ж сама \(f(\textbf{x})\) буде розв'язком нашого початкового рівняння. Наш підхід полягає в створенні нейронної мережі або просто параметризованої функції \(f(\textbf{p}, \textbf{x})\) якоїсь достатньо загальної форми і наближеному розв'язку мінімізації в термінах параметрів \(\textbf{p}\) \[\textbf{p}_{\text{min}} \approx \underset{\textbf{p}}{\text{argmin}}|L[f(\textbf{p}, \textbf{x})] - R[f(\textbf{p}, \textbf{x})]|\] Надалі ми вважаємо, що \(\tilde{f}(\textbf{x})=f(\textbf{p}_{\text{min}}, \textbf{x})\), де ми фіксуємо оптимальні параметри й варіюємо лише арґументи, є приблизно наша шукана функція. На мові машинного навчання, ми задаємо нашу функцію витрат (loss function) як \(|L[f] - R[f]|\) і використовуємо алгоритм мінімізації (як градієнтний спуск) для знаходження мінімуму.
+      </p>
+      <p>
+        Це дуже важлива ідеї, яка часто зустрічається в різних інтерпретаціях. Я дуже рекомендую подивитися англійською <a href="https://youtube.com/playlist?list=PLCAl7tjCwWyGjdzOOnlbGnVNZk0kB8VSa">Parallel Computing and Scientific Machine Learning Course</a> і <a href="https://github.com/thunil/Physics-Based-Deep-Learning">оце</a> для інших застосувань саме глибокого навчання у фізиці.
+      </p>
+    </div>
+
+    <div style="text-align:center;padding-top:2%;"><a href="https://atell.neocities.org" style="color:grey">Atell Krasnopolski, 2022</a></div>
+  </body>
+</html>
