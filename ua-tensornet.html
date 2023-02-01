@@ -34,6 +34,9 @@
       <p>
         Прикладами тензорів суть матриці (тензори другого порядку) та вектори (першого порядку). Тензори, в цілому, варто розглядати як узагальнення векторів і матрицю на довільний розмір. Скаляри теж іноді вважаються тензорами нульового порядку.
       </p>
+      <img style="display:block;margin:auto" src="img/ua-tensornet/0.png" alt="examples of graphic representation">
+      <div style="text-align:center"> <i>Малюнок 0</i> </div>
+      <div style="text-align:center"> (<a href="https://medium.com/codex/tensor-basics-in-pytorch-252a34288f2" target="_blank">image/малюнок: medium.com</a>) </div>
       <h2>Згортка Тензорів та Нотація Ейнштейна</h2>
       <p>
         <b>Згортка тензорів</b> (з англ. tensor contraction, не плутати з convolution - згортка) – це операція суми всіх елементів двох тензорів за спільним інексом, результатом якої є інший тензор. <br> Це те що я буду далі називати згорткою. Часто це ще називають <b>binary tensor contraction</b>, аби відрізняти від <b>tensor contraction</b>, яким тоді вважають просто узагальнення сліду матриці (тобто операція над одним тензором, а не над двома), але це призводить до плутанини, як на мене.
@@ -52,7 +55,7 @@
       <h2>Мережеве Представлення та Застосування</h2>
       <img style="display:block;margin:auto" src="img/ua-tensornet/1.png" alt="examples of graphic representation">
       <div style="text-align:center"> <i>Малюнок 1</i> </div>
-      <div style="text-align:center"> (<a href="https://www.tensors.net/intro">image/малюнок: tensors.net</a>) </div>
+      <div style="text-align:center"> (<a href="https://www.tensors.net/intro" target="_blank">image/малюнок: tensors.net</a>) </div>
       <p>
         Графічно було б зручно (з точки зору згортки) уявляти тензори як певні "вузли/фіґури з ніжками" (мал. 1), де кожен індекс - це певна ніжка. Такі позначення тензорів можна об'єднувати в <b>мережеві діяграми</b>. Ніжки, що стирчать з усієї мережі позначають вільні індекси, ніжки, що сполучають два тензори - зв'язні. Іншого виду ніжок ви намалювати не зможете, отже й інших індексів існувати не може. Тобто:
       </p>
@@ -75,20 +78,20 @@
       </p>
       <img style="display:block;margin:auto" src="img/ua-tensornet/3.png" alt="examples of graphic representation">
       <div style="text-align:center"> <i>Малюнок 3</i> </div>
-      <div style="text-align:center"> (<a href="https://www.tensors.net/intro">image/малюнок: tensors.net</a>) </div>
+      <div style="text-align:center"> (<a href="https://www.tensors.net/intro" target="_blank">image/малюнок: tensors.net</a>) </div>
       <p>
         Які системи описуються тензорами \(n\)-того порядку? Як правило, складні квантові системи, ми також можемо записати в такому вигляді цілі моделі машинного навчання, інші фізичні системи тощо. Наприклад, таким чином:
       </p>
       <img style="display:block;margin:auto" src="img/ua-tensornet/4.png" alt="examples of graphic representation">
       <div style="text-align:center"> <i>Малюнок 4</i> </div>
-      <div style="text-align:center"> (<a href="https://www.tensors.net/intro">image/малюнок: tensors.net</a>) </div>
+      <div style="text-align:center"> (<a href="https://www.tensors.net/intro" target="_blank">image/малюнок: tensors.net</a>) </div>
       <p>
         Тут \(|ψ⟩\) позначає систему з \(N\) підсистем (для кожної відповідний індекс \(i\)), тензор \(C\) - це по суті великий масив з коєфіцієнтами для лінійної комбінації можливих станів системи.
       </p>
       <h2>Спряжені Тензори та Інші Позначення</h2>
       <img style="display:block;margin:auto" src="img/ua-tensornet/5.png" alt="examples of graphic representation">
       <div style="text-align:center"> <i>Малюнок 5</i> </div>
-      <div style="text-align:center"> (<a href="https://www.tensors.net/tutorial-2">image/малюнок: tensors.net</a>) </div>
+      <div style="text-align:center"> (<a href="https://www.tensors.net/tutorial-2" target="_blank">image/малюнок: tensors.net</a>) </div>
       <p>
         На малюнку 5 наведено приклади інших позначень: діягональних матриць та їх узагальнень на тензори, унітарних матриць та їх узагальнень на тензори, обернених до них. Останні позначаються трапеціями з лінією, яка позначає вісь, відносно якої тензор є "умовно унітарним", перевенуті відносно цієї вісі трапеції позначають обернені тензори. Важливим трюком, на якому ґрунтується багато тензорно-мережевих алгоритмів є розбиття звичайних зв'язків на пару спряжених унітарних матриць, або навіть тензорів будь-якої форми, які потім можна частково чи повністю згорнути з сусідніми, що дозволяє змінювати форму мережі майже будь-яким чином (Малюнок 6).
       </p>
@@ -107,7 +110,7 @@
         Центр ортогональности є об'єктом з декими часто бажаними властивостями, що робить його пошук потрібною практичною задачею. Власне, на один з алгоритмів його пошуку далі й подивимось.
       </p>
       <p>
-        <b>Алгоритм протягування (протягу)</b> (з англ. Pulling Through) використовується для пошуку центру в древовидних тензорних мережах. Точніше, ми обираємо будь-який зручний за позицією чи розмірами тензор і, за допомогою змін, як на малюнку 6 чи просто розкладів тензорів, перероблюємо його на центр. Для цього алгоритму знадобиться поняття <a href="https://uk.wikipedia.org/wiki/QR-%D1%80%D0%BE%D0%B7%D0%BA%D0%BB%D0%B0%D0%B4_%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D1%96">QR-розкладу</a> тензорів чи матриць на множники. Кроки:
+        <b>Алгоритм протягування (протягу)</b> (з англ. Pulling Through) використовується для пошуку центру в древовидних тензорних мережах. Точніше, ми обираємо будь-який зручний за позицією чи розмірами тензор і, за допомогою змін, як на малюнку 6 чи просто розкладів тензорів, перероблюємо його на центр. Для цього алгоритму знадобиться поняття <a href="https://uk.wikipedia.org/wiki/QR-%D1%80%D0%BE%D0%B7%D0%BA%D0%BB%D0%B0%D0%B4_%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D1%96" target="_blank">QR-розкладу</a> тензорів чи матриць на множники. Кроки:
       </p>
       <div class="row">
         <div class="column" style="padding-left:0">
@@ -123,7 +126,7 @@
         <div class="column" style="padding-right:0">
           <img style="display:block;margin:auto;height:auto" src="img/ua-tensornet/8.png" alt="examples of graphic representation">
           <div style="text-align:center"> <i>Малюнок 8</i> </div>
-          <div style="text-align:center"> (<a href="https://www.tensors.net/tutorial-3">image/малюнок: tensors.net</a>) </div>
+          <div style="text-align:center"> (<a href="https://www.tensors.net/tutorial-3" target="_blank">image/малюнок: tensors.net</a>) </div>
         </div>
       </div>
       <p>
@@ -131,9 +134,12 @@
       </p>
         <img style="display:block;margin:auto;height:auto" src="img/ua-tensornet/9.png" alt="examples of graphic representation">
         <div style="text-align:center"> <i>Малюнок 9: загальна інтуїція до алгоритму</i> </div>
-        <div style="text-align:center"> (<a href="https://www.tensors.net/tutorial-3">image/малюнок: tensors.net</a>) </div>
+        <div style="text-align:center"> (<a href="https://www.tensors.net/tutorial-3" target="_blank">image/малюнок: tensors.net</a>) </div>
     </div>
 
-    <div style="text-align:center;padding-top:2%;"><a href="https://atell.neocities.org" style="color:grey">Atell Krasnopolski, 2022</a></div>
+    <div style="text-align:center;padding-top:2%;"> <!-- license and credits -->
+      <a href="https://atell.neocities.org">website by Atell Krasnopolski</a><br>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.uk" target="_blank"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png"></a>
+    </div>
   </body>
 </html>
